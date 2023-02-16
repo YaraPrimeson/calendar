@@ -13,17 +13,5 @@ export enum RouteNames {
     EVENT = "/"
 }
 
-export const publicRoutes: IRoute[] = [
-    {
-        path: RouteNames.LOGIN,
-        component: Login,
-        exact: true
-    }
-]
-export const privateRoutes: IRoute[] = [
-    {
-        path: RouteNames.EVENT,
-        component: Event,
-        exact: true
-    }
-]
+export const publicRoutes: IRoute[] = [{path: RouteNames.LOGIN, component: Login, exact: true}]
+export const privateRoutes: IRoute[] = [{path: RouteNames.EVENT, exact: true, component: Event}]

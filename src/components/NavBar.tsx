@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {Layout, Menu, Row} from 'antd';
+import {Layout, Card, Row} from 'antd';
 import {useHistory} from "react-router";
 import {RouteNames} from "../router";
 import {useTypedSelector} from "../hooks/useTypedSelector";
@@ -15,22 +15,21 @@ const NavBar: FC = () => {
             <Row justify="end">
                 {isAuth ?
                     <>
-                        <div style={{color: "purple"}}>
+                        <div style={{color: "purple",marginRight:"10px"}}>
                             {user.username}
                         </div>
-                        <Menu selectable={false}>
-                            <Menu.Item onClick={logout} key={1}>
+                        <Card >
+                            <div onClick={logout} key={1}>
                                 logout
-                            </Menu.Item>
-                        </Menu>
+                            </div>
+                        </Card>
                     </>
                     :
-
-                    <Menu selectable={false}>
-                        <Menu.Item onClick={() => router.push(RouteNames.LOGIN)} key={1}>
+                    <Card >
+                        <div onClick={() => router.push(RouteNames.LOGIN)} key={1}>
                             login
-                        </Menu.Item>
-                    </Menu>
+                        </div>
+                    </Card>
                 }
 
             </Row>

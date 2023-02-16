@@ -3,14 +3,18 @@ import {Button, Form, Input} from "antd";
 import {rules} from "../utils/rules";
 import {useTypedSelector} from "../hooks/useTypedSelector";
 import {useActions} from "../hooks/useActions";
+import {useHistory} from "react-router";
+import {RouteNames} from "../router";
 
 const LoginForm: FC = () => {
-    const {isLoading, error} = useTypedSelector(state => state.auth)
+    const {isLoading, error} = useTypedSelector(state => state.auth);
+    const router = useHistory();
     const [username, setUsername] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const {login} = useActions();
     const submit = () => {
-        login(username, password)
+        login(username, password);
+        router.push(RouteNames.EVENT);
     }
     return (
         <Form onFinish={submit}>
